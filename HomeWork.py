@@ -32,6 +32,13 @@ class LinkedList(object):
             current = current.next
         return count
 
+    def traverse_and_print(self):
+        """ Traverses Linked list and prints all its elements. """
+        current = self.head
+        while current:
+            print(current.value)
+            current = current.next
+
     def remove_middle(self):
         """ Removes middle element of the Linked list.
 
@@ -141,3 +148,23 @@ class DDTests(TestCase):
                 ii += 1
             else:
                 raise AssertionError
+
+
+# the example main code begins here
+
+example_llist = LinkedList()
+example_llist.head = Node(1)
+example_llist_item2 = Node(2)
+example_llist.head.next = example_llist_item2
+example_llist_item3 = Node(3)
+example_llist_item2.next = example_llist_item3
+example_llist_item4 = Node(4)
+example_llist_item3.next = example_llist_item4
+example_llist_item5 = Node(5)
+example_llist_item4.next = example_llist_item5
+
+print("Linked list elements before removing middle one:")
+example_llist.traverse_and_print()
+example_llist.remove_middle()
+print("Linked list elements after removing middle one:")
+example_llist.traverse_and_print()
